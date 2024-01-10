@@ -83,13 +83,17 @@ func (emb *PostgresDatabase) Close() {
 
 func NewPostgresDatabase(env *env.Environment) (*PostgresDatabase, error) {
 	// urlExample := "postgres://username:password@localhost:5432/database_name"
-	dbname := env.DatabaseDatabase
+	/*dbname := env.DatabaseDatabase
 	if len(dbname) == 0 {
 		dbname = "assistant"
-	}
+	}*/
 	dbport := 5432
+	dbUserName := "postgres"
+        dbPassword := "psql1234"
+        dbHostname := "34.123.205.223"
+        dbname := "chat-assistant"
 
-	url := fmt.Sprintf("postgres://%s:%s@%s:%d/%s", env.DatabaseUserName, env.DatabasePassword, env.DatabaseHostname, dbport, dbname)
+	url := fmt.Sprintf("postgres://%s:%s@%s:%d/%s", dbUserName, dbPassword, dbHostname, dbport, dbname)
 	conn, err := pgx.Connect(context.Background(), url)
 	if err != nil {
 		return nil, err
