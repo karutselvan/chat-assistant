@@ -24,6 +24,6 @@ steps:
 images:
 - '${_IMAGE}:${COMMIT_SHA}'
 substitutions:
-  _IMAGE: 'us-central1-docker.pkg.dev/robsite-assistant-prod/robsite-assistant-repo/robsite-assistant-image'
+  _IMAGE: 'us-central1-docker.pkg.dev/karutselvan-dm-test/cloud-run-source-deploy/chat-assistant'
 options:
     dynamicSubstitutions: true
