@@ -7,20 +7,26 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+		
 		"ghcr.io/devcontainers/features/sshd:1": {
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers-contrib/features/apt-packages:1": {
 			"packages": ""
-		}
+		},
+		"ghcr.io/jckimble/devcontainer-features/ngrok:3": {}
 	},
 
 	"remoteEnv": {
-		"PALM_KEY":    "${localEnv:SOME_LOCAL_VAR}",
+		"PALM_KEY":    "${localEnv:PALM_KEY}",
 		"PG_HOSTNAME": "${localEnv:PG_HOSTNAME}",
 		"PG_USERNAME": "${localEnv:PG_USERNAME}",
 		"PG_PASSWORD": "${localEnv:PG_PASSWORD}",
-		
+		"SLACK_BOT_OAUTH_TOKEN":"${localEnv:SLACK_BOT_OAUTH_TOKEN}",
+		"SLACK_CLIENT_ID":"${localEnv:SLACK_CLIENT_ID}",
+		"SLACK_CLIENT_SECRET":"${localEnv:SLACK_CLIENT_SECRET}",
+		"SLACK_SIGNING_SECRET":"${localEnv:SLACK_SIGNING_SECRET}"
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

@@ -10,9 +10,11 @@ import (
 	"log/slog"
 	"net/http"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/rcleveng/assistant/cmd/server/chat"
 	"github.com/rcleveng/assistant/cmd/server/docs"
+	"github.com/rcleveng/assistant/cmd/server/slack"
 	"github.com/rcleveng/assistant/server/env"
 
 	"os"
@@ -74,6 +76,18 @@ func main() {
 	router.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte{'o', 'k', '\n'})
 	})
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte{'o', 'k', '\n'})
+	})
+
+	// Add Slack Support
+	slackRouter := router.PathPrefix("/slack").Subrouter()
+
+	slackHandler, err := slack.NewSlackHandler(ctx, environment, slackRouter)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer slackHandler.Close()
 
 	// Serve the static files off of root last since gorilla mux cares about the order
 	// where stdlib uses prefix length
@@ -91,7 +105,7 @@ func main() {
 
 	// Start HTTP server.
 	slog.Info("listening on port " + port)
-	if err := http.ListenAndServe(":"+port, addRequestEnvironment(router, environment)); err != nil {
+	if err := http.ListenAndServe(":"+port, handlers.LoggingHandler(os.Stdout, addRequestEnvironment(router, environment))); err != nil {
 		log.Fatal(err)
 	}
 }

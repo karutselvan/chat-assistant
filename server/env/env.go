@@ -31,7 +31,13 @@ type Environment struct {
 	DatabaseUserName string
 	DatabasePassword string
 	DatabaseDatabase string
-	Platform         Platform
+
+	SlackBotOAuthToken string
+	SlackClientID      string
+	SlackClientSecret  string
+	SlackSigningSecret string
+
+	Platform Platform
 }
 
 type EnvironmentKeyType int
@@ -52,12 +58,16 @@ func NewEnvironment() (*Environment, error) {
 
 func NewEnvironmentForPlatform(platform Platform) (*Environment, error) {
 	environment := &Environment{
-		PalmApiKey:       os.Getenv("PALM_KEY"),
-		DatabaseHostname: os.Getenv("PG_HOSTNAME"),
-		DatabaseUserName: os.Getenv("PG_USERNAME"),
-		DatabasePassword: os.Getenv("PG_PASSWORD"),
-		DatabaseDatabase: os.Getenv("PG_DATABASE"),
-		Platform:         platform,
+		PalmApiKey:         os.Getenv("PALM_KEY"),
+		DatabaseHostname:   os.Getenv("PG_HOSTNAME"),
+		DatabaseUserName:   os.Getenv("PG_USERNAME"),
+		DatabasePassword:   os.Getenv("PG_PASSWORD"),
+		DatabaseDatabase:   os.Getenv("PG_DATABASE"),
+		SlackBotOAuthToken: os.Getenv("SLACK_BOT_OAUTH_TOKEN"),
+		SlackClientID:      os.Getenv("SLACK_CLIENT_ID"),
+		SlackClientSecret:  os.Getenv("SLACK_CLIENT_SECRET"),
+		SlackSigningSecret: os.Getenv("SLACK_SIGNING_SECRET"),
+		Platform:           platform,
 	}
 
 	switch platform {

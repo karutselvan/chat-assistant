@@ -9,6 +9,7 @@ import (
 	"github.com/rcleveng/assistant/server/db"
 	"github.com/rcleveng/assistant/server/env"
 	"github.com/rcleveng/assistant/server/llm"
+	"github.com/rcleveng/assistant/server/llm/palm"
 	"github.com/spf13/cobra"
 	"github.com/tmc/langchaingo/textsplitter"
 )
@@ -38,7 +39,7 @@ func init() {
 
 func add(env *env.Environment, text []string) error {
 	ctx := context.Background()
-	llm, err := llm.NewPalmLLMClient(ctx, env)
+	llm, err := palm.NewPalmLLMClient(ctx, env)
 	if err != nil {
 		return err
 	}

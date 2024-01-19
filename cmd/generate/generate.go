@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm"
+	"github.com/rcleveng/assistant/server/llm/palm"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	client, err := llm.NewPalmLLMClient(ctx, env)
+	client, err := palm.NewPalmLLMClient(ctx, env)
 	if err != nil {
 		fmt.Printf("ERROR: %v\n\n", err)
 		os.Exit(2)

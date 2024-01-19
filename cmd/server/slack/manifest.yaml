@@ -1,0 +1,24 @@
+display_information:
+  name: Robsite.org Assistant
+features:
+  bot_user:
+    display_name: Robsite.org Assistant
+    always_online: false
+  slash_commands:
+    - command: /help
+      url: https://assistant.robsite.org/slack/commands/help
+      description: Displays Help
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - chat:write
+      - commands
+      - files:read
+      - users:read
+      - users:read.email
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
