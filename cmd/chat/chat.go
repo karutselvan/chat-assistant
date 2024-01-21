@@ -29,7 +29,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVar(&debugChatURL, "url", "http://localhost:8080/chat/basic", "http endpoint to the debug chat server")
+	rootCmd.PersistentFlags().StringVar(&debugChatURL, "url", "http://localhost:2302/chat/basic", "http endpoint to the debug chat server")
 	rootCmd.PersistentFlags().BoolVar(&verbose, "verbose", false, "be verbose")
 }
 
