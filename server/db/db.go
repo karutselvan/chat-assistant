@@ -6,7 +6,7 @@ import (
 
 	pgx "github.com/jackc/pgx/v5"
 	"github.com/pgvector/pgvector-go"
-	"github.com/rcleveng/assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/env"
 )
 
 type EmbeddingsDB interface {

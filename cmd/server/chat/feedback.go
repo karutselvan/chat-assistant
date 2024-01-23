@@ -7,7 +7,7 @@ import (
 	"net/http/httputil"
 
 	"github.com/gorilla/mux"
-	"github.com/rcleveng/assistant/server"
+	"github.com/karutselvan/chat-assistant/server"
 
 	pb "google.golang.org/api/chat/v1"
 )

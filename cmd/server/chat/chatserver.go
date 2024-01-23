@@ -12,12 +12,12 @@ import (
 
 	"github.com/coreos/go-oidc/v3/oidc"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/rcleveng/assistant/server"
-	"github.com/rcleveng/assistant/server/db"
-	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm"
-	"github.com/rcleveng/assistant/server/llm/kernel"
-	"github.com/rcleveng/assistant/server/llm/palm"
+	"github.com/karutselvan/chat-assistant/server"
+	"github.com/karutselvan/chat-assistant/server/db"
+	"github.com/karutselvan/chat-assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/llm"
+	"github.com/karutselvan/chat-assistant/server/llm/kernel"
+	"github.com/karutselvan/chat-assistant/server/llm/palm"
 
 	pb "google.golang.org/api/chat/v1"
 )

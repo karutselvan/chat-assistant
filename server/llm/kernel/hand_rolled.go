@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/rcleveng/assistant/server/db"
-	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm"
-	"github.com/rcleveng/assistant/server/llm/palm"
+	"github.com/karutselvan/chat-assistant/server/db"
+	"github.com/karutselvan/chat-assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/llm"
+	"github.com/karutselvan/chat-assistant/server/llm/palm"
 )
 
 type HandRolledKernel struct {

@@ -6,10 +6,10 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/golang/glog"
-	"github.com/rcleveng/assistant/server/db"
-	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm"
-	"github.com/rcleveng/assistant/server/llm/palm"
+	"github.com/karutselvan/chat-assistant/server/db"
+	"github.com/karutselvan/chat-assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/llm"
+	"github.com/karutselvan/chat-assistant/server/llm/palm"
 	"github.com/spf13/cobra"
 	"github.com/tmc/langchaingo/textsplitter"
 )

@@ -12,12 +12,12 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
-	"github.com/rcleveng/assistant/server"
-	"github.com/rcleveng/assistant/server/db"
-	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm"
-	"github.com/rcleveng/assistant/server/llm/kernel"
-	"github.com/rcleveng/assistant/server/llm/palm"
+	"github.com/karutselvan/chat-assistant/server"
+	"github.com/karutselvan/chat-assistant/server/db"
+	"github.com/karutselvan/chat-assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/llm"
+	"github.com/karutselvan/chat-assistant/server/llm/kernel"
+	"github.com/karutselvan/chat-assistant/server/llm/palm"
 
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"

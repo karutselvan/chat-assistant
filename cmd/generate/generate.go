@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rcleveng/assistant/server/env"
-	"github.com/rcleveng/assistant/server/llm/palm"
+	"github.com/karutselvan/chat-assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/llm/palm"
 )
 
 func main() {

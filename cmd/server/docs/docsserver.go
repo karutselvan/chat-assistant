@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"net/http/httputil"
 
-	"github.com/rcleveng/assistant/apps"
-	"github.com/rcleveng/assistant/cards"
-	"github.com/rcleveng/assistant/server"
+	"github.com/karutselvan/chat-assistant/apps"
+	"github.com/karutselvan/chat-assistant/cards"
+	"github.com/karutselvan/chat-assistant/server"
 )
 
 func mainCard(w http.ResponseWriter, r *http.Request, event *apps.WorkspaceAppEvent) *cards.Card {

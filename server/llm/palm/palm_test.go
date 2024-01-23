@@ -9,7 +9,7 @@ import (
 
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1/generativelanguagepb"
 
-	"github.com/rcleveng/assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/env"
 	"google.golang.org/api/option"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"

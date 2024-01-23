@@ -11,7 +11,7 @@ import (
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1/generativelanguagepb"
 
 	"github.com/google/generative-ai-go/genai"
-	"github.com/rcleveng/assistant/server/env"
+	"github.com/karutselvan/chat-assistant/server/env"
 	"google.golang.org/api/option"
 )
 

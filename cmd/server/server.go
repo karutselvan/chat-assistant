@@ -12,10 +12,10 @@ import (
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/rcleveng/assistant/cmd/server/chat"
-	"github.com/rcleveng/assistant/cmd/server/docs"
-	"github.com/rcleveng/assistant/cmd/server/slack"
-	"github.com/rcleveng/assistant/server/env"
+	"github.com/karutselvan/chat-assistant/cmd/server/chat"
+	"github.com/karutselvan/chat-assistant/cmd/server/docs"
+	"github.com/karutselvan/chat-assistant/cmd/server/slack"
+	"github.com/karutselvan/chat-assistant/server/env"
 
 	"os"
 )

@@ -1,4 +1,4 @@
-module github.com/rcleveng/assistant
+module github.com/karutselvan/chat-assistant
 
 go 1.21
 
