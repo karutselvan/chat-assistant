@@ -3,6 +3,8 @@
 # https://hub.docker.com/_/golang
 FROM golang:latest as builder
 
+CMD HOME=/root
+
 # Create and change to the app directory.
 WORKDIR /bin
 
