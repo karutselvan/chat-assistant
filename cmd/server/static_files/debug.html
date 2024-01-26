@@ -8,21 +8,35 @@
     <title>Debug Chat</title>
 
     <script>
-        function chat() {
-            alert("chat")
-        let text = document.getElementById('tfChat').value
-        const response = fetch("http://localhost:2302/chat/basic", {
-      method: "POST",
-      body: JSON.stringify({
-        name: "Rob",
-        text: text,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    }).then(response => response.text())
+      function chat() {
+          let text = document.getElementById('tfChat').value
+          alert(text);
+          const response = fetch("http://localhost:2302/chat/basic", {
+            method: "POST",
+            body: JSON.stringify({
+              name: "Karthi",
+              text: text,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          }).then(response => response.text())
         .then(data => { document.getElementById('response').innerHTML = data; });
-}
+        alert("Response: " + response);
+        let text = document.getElementById('tfChat').value
+          const response = fetch("https://chat-assistant-gvzssrq4na-uc.a.run.app/chat/basic", {
+            method: "POST",
+            body: JSON.stringify({
+              name: "Karthi",
+              text: text,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          }).then(response => response.text())
+        .then(data => { document.getElementById('response').innerHTML = data; });
+        alert("Trying https://chat-assistant-gvzssrq4na-uc.a.run.app ");
+      }
     </script>
     </head>
 <body>

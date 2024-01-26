@@ -2,10 +2,10 @@
   "oauthScopes": ["https://www.googleapis.com/auth/gmail.addons.execute", "https://www.googleapis.com/auth/gmail.metadata", "https://www.googleapis.com/auth/documents.readonly", "https://www.googleapis.com/auth/drive.file"],
   "addOns": {
     "common": {
-      "name": "Robsite Assistant",
+      "name": "Chat Assistant",
       "logoUrl": "https://fonts.gstatic.com/s/i/googlematerialicons/markunread_mailbox/v6/black-24dp/1x/gm_markunread_mailbox_black_24dp.png",
       "homepageTrigger": {
-        "runFunction": "https://chat-assistant-t7n7jylk4q-uc.a.run.app"
+        "runFunction": "https://chat-assistant-gvzssrq4na-uc.a.run.app"
       }
     },
     "gmail": {
@@ -16,7 +16,7 @@
     },
     "docs": {
       "onFileScopeGrantedTrigger": {
-        "runFunction": "https://chat-assistant-t7n7jylk4q-uc.a.run.app"
+        "runFunction": "https://chat-assistant-gvzssrq4na-uc.a.run.app"
       }
     },
     "sheets": {
