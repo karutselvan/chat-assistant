@@ -9,6 +9,7 @@
 
     <script>
       function chat() {
+          alert("Chat");
           let text = document.getElementById('tfChat').value
           alert(text);
           const response = fetch("http://localhost:2302/chat/basic", {
