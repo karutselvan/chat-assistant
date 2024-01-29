@@ -207,6 +207,8 @@ func (handler *ChatHandler) HandleChatBasic(w http.ResponseWriter, r *http.Reque
 	slog.Info(fmt.Sprint("Decoded Message: ", spew.Sdump(req)))
 
 	sessionId := "0"
+	slog.Info(fmt.Sprint("Decoded Context : ", spew.Sdump(r.Context())))
+	slog.Info(fmt.Sprint("Decoded Session : ", spew.Sdump(sessionId)))
 	text, err := handler.kernel.Chat(r.Context(), req.Name, sessionId, req.Text)
 	if err != nil {
 		slog.Error("Error: ", "error", err)
