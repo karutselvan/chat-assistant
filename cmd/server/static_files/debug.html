@@ -9,9 +9,9 @@
 
     <script>
       function chat() {
-          alert("Chat");
+          alert("Chat")
           let text = document.getElementById('tfChat').value
-          alert(text);
+          alert(text)
           const response = fetch("http://localhost:2302/chat/basic", {
             method: "POST",
             body: JSON.stringify({
@@ -23,7 +23,7 @@
             }
           }).then(response => response.text())
         .then(data => { document.getElementById('response').innerHTML = data; });
-        alert("Response: " + response);
+        alert("Response: " + response)
         let text = document.getElementById('tfChat').value
           const response = fetch("https://chat-assistant-gvzssrq4na-uc.a.run.app/chat/basic", {
             method: "POST",
@@ -36,7 +36,7 @@
             }
           }).then(response => response.text())
         .then(data => { document.getElementById('response').innerHTML = data; });
-        alert("Trying https://chat-assistant-gvzssrq4na-uc.a.run.app ");
+        alert("Trying https://chat-assistant-gvzssrq4na-uc.a.run.app ")
       }
     </script>
     </head>
