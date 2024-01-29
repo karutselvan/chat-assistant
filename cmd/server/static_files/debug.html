@@ -9,7 +9,7 @@
 
     <script>
         function chat() {
-            alert("chat")
+            alert("chat - "+document.getElementById('tfChat').value)
         let text = document.getElementById('tfChat').value
         const response = fetch("http://localhost:2302/chat/basic", {
       method: "POST",
@@ -22,6 +22,7 @@
       }
     }).then(response => response.text())
         .then(data => { document.getElementById('response').innerHTML = data; });
+    alert("res - "+response)
 }
     </script>
     </head>
