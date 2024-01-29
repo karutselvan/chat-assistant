@@ -22,7 +22,19 @@
       }
     }).then(response => response.text())
         .then(data => { document.getElementById('response').innerHTML = data; });
-    alert("res - "+response)
+    alert("local host res - "+(JSON.stringify(response)))
+    /*const appresponse = fetch("https://chat-assistant-gvzssrq4na-uc.a.run.app/chat/basic", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Rob",
+        text: text,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(response => response.text())
+        .then(data => { document.getElementById('response').innerHTML = data; });
+    alert("local host res - "+(JSON.stringify(appresponse)))*/
 }
     </script>
     </head>
