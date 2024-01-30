@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"io"
 	"net/http"
 	"os"
@@ -39,10 +40,12 @@ type BasicChat struct {
 }
 
 func chat(text []string) error {
+	slog.Info("in chat function")
 	b, err := json.Marshal(BasicChat{
 		Name: os.Getenv("LOGNAME"),
 		Text: strings.Join(text, "\n"),
 	})
+	slog.Info(fmt.Sprint("json request : ", spew.Sdump(b)))
 	if err != nil {
 		return err
 	}
@@ -54,6 +57,7 @@ func chat(text []string) error {
 	if err != nil {
 		return err
 	}
+	slog.Info("Aka No Error after Post call")
 	if resp.StatusCode != 200 {
 		return fmt.Errorf("error HTTP %d: %s", resp.StatusCode, resp.Status)
 	}
