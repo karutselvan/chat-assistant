@@ -23,7 +23,7 @@ import (
 	"github.com/slack-go/slack/slackevents"
 )
 
-const defaultChatAppProject = "1007744422436"
+const defaultChatAppProject = "392420558361"
 
 // const chatIssuer = "chat@system.gserviceaccount.com"
 // const jwtURL = "https://www.googleapis.com/service_accounts/v1/jwk/"
