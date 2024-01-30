@@ -59,7 +59,7 @@ func NewChatHandler(ctx context.Context, environment *env.Environment) (*ChatHan
 		return nil, err
 	}
 
-	slog.Info(fmt.Sprint("Before palm client")
+	slog.Info(fmt.Sprint("Before palm client"))
 	llm, err := palm.NewPalmLLMClient(ctx, environment)
 	if err != nil {
 		return nil, err
