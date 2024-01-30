@@ -47,24 +47,31 @@ func NewChatHandler(ctx context.Context, environment *env.Environment) (*ChatHan
 		SkipClientIDCheck: true,
 		ClientID:          projectID,
 	}
+	slog.Info(fmt.Sprint("OIDC config : ", spew.Sdump(config)))
 	ks := oidc.NewRemoteKeySet(ctx, jwtURL+chatIssuer)
+	slog.Info(fmt.Sprint("OIDC ks : ", spew.Sdump(ks)))
 	verifier := oidc.NewVerifier(chatIssuer, ks, config)
+	slog.Info(fmt.Sprint("OIDC verifier : ", spew.Sdump(verifier)))
 
 	kernel, err := kernel.NewHandRolledKernel(ctx, environment)
+	slog.Info(fmt.Sprint("OIDC Kernel : ", spew.Sdump(kernel)))
 	if err != nil {
 		return nil, err
 	}
 
+	slog.Info(fmt.Sprint("Before palm client")
 	llm, err := palm.NewPalmLLMClient(ctx, environment)
 	if err != nil {
 		return nil, err
 	}
 
+	slog.Info(fmt.Sprint("palm client Info : ", spew.Sdump(llm)))
 	edb, err := db.NewPostgresDatabase(environment)
 	if err != nil {
 		return nil, err
 	}
 
+	slog.Info(fmt.Sprint("DB client Info : ", spew.Sdump(edb)))
 	return &ChatHandler{
 		verifier:  verifier,
 		llm:       llm,
