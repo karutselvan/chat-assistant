@@ -10,6 +10,8 @@ import (
 	generativelanguage "cloud.google.com/go/ai/generativelanguage/apiv1"
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1/generativelanguagepb"
 
+	"cloud.google.com/go/secretmanager"
+
 	"github.com/google/generative-ai-go/genai"
 	"github.com/karutselvan/chat-assistant/server/env"
 	"google.golang.org/api/option"
@@ -136,8 +138,24 @@ func (c *PalmLLMClient) BatchEmbedText(ctx context.Context, texts []string) ([][
 }
 
 func NewPalmLLMClient(ctx context.Context, environment *env.Environment, opts ...option.ClientOption) (*PalmLLMClient, error) {
-	slog.Info("Palm API Env Key" + environment.PalmApiKey)
-	allopts := append([]option.ClientOption{option.WithAPIKey(environment.PalmApiKey)}, opts...)
+
+	client, err := secretmanager.NewClient(context.Background())
+  	if err != nil {
+    		return nil, err
+	}
+
+  	// Access the secret.
+  	secretVersion, err := client.AccessSecretVersion(context.Background(), &secretmanager.AccessSecretVersionRequest{
+    		Name: "genai-api-key/versions/latest",
+  	})
+  	if err != nil {
+	    	return nil, err
+  	}
+
+  	// Get the secret data.
+  	secretData = secretVersion.Payload.Data
+	slog.Info("Palm API Env Key" + secretData + " -\")
+	allopts := append([]option.ClientOption{option.WithAPIKey(secretData)}, opts...)
 	client, err := genai.NewClient(ctx, allopts...)
 	if err != nil {
 		return nil, err
