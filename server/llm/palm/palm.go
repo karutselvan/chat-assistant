@@ -139,6 +139,7 @@ func (c *PalmLLMClient) BatchEmbedText(ctx context.Context, texts []string) ([][
 
 func NewPalmLLMClient(ctx context.Context, environment *env.Environment, opts ...option.ClientOption) (*PalmLLMClient, error) {
 
+	/*
 	client, err := secretmanager.NewClient(context.Background())
   	if err != nil {
     		return nil, err
@@ -155,7 +156,8 @@ func NewPalmLLMClient(ctx context.Context, environment *env.Environment, opts ..
   	// Get the secret data.
   	secretData = secretVersion.Payload.Data
 	slog.Info("Palm API Env Key" + secretData + " -\")
-	allopts := append([]option.ClientOption{option.WithAPIKey(secretData)}, opts...)
+	*/
+	allopts := append([]option.ClientOption{option.WithAPIKey("AIzaSyALb82cms3j503kC6YU0z4MXOo4zYNM5KQ")}, opts...)
 	client, err := genai.NewClient(ctx, allopts...)
 	if err != nil {
 		return nil, err
