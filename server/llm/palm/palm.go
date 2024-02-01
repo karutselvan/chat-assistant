@@ -10,7 +10,7 @@ import (
 	generativelanguage "cloud.google.com/go/ai/generativelanguage/apiv1"
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1/generativelanguagepb"
 
-	"cloud.google.com/go/secretmanager"
+	//"cloud.google.com/go/secretmanager"
 
 	"github.com/google/generative-ai-go/genai"
 	"github.com/karutselvan/chat-assistant/server/env"
