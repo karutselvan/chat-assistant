@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"strings"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/karutselvan/chat-assistant/server/db"
 	"github.com/karutselvan/chat-assistant/server/env"
 	"github.com/karutselvan/chat-assistant/server/llm"
