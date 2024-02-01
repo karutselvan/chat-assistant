@@ -3,6 +3,7 @@ package kernel
 import (
 	"context"
 	"fmt"
+	"log/slog"
 	"strings"
 
 	"github.com/karutselvan/chat-assistant/server/db"
@@ -61,22 +62,27 @@ func (k *HandRolledKernel) RunChain(ctx context.Context, cmd, rest, name string)
 
 func (k *HandRolledKernel) Chat(ctx context.Context, name, sessionId, text string) (string, error) {
 
+	slog.Info(fmt.Sprint("Kernel Chat: ", spew.Sdump(ctx)))
 	emb, err := k.llm.EmbedText(ctx, text)
+	slog.Info(fmt.Sprint("Embed Obj: ", spew.Sdump(emb)))
 	if err != nil {
 		return "", err
 	}
 
 	context, err := k.db.Find(emb, 2)
+	slog.Info(fmt.Sprint("Context Obj: ", spew.Sdump(context)))
 	if err != nil {
 		context = []string{}
 	}
 
 	prompt, err := llm.ChatPrompt(text, context)
+	slog.Info(fmt.Sprint("Prompt Obj: ", spew.Sdump(prompt)))
 	if err != nil {
 		fmt.Println("error generating chat prompt", err.Error())
 		prompt = text
 	}
 	responseText, err := k.llm.GenerateText(ctx, prompt)
+	slog.Info(fmt.Sprint("Generated text Obj: ", spew.Sdump(responseText)))
 	if err != nil {
 		return "", err
 	}
