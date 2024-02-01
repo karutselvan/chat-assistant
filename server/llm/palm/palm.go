@@ -136,6 +136,7 @@ func (c *PalmLLMClient) BatchEmbedText(ctx context.Context, texts []string) ([][
 }
 
 func NewPalmLLMClient(ctx context.Context, environment *env.Environment, opts ...option.ClientOption) (*PalmLLMClient, error) {
+	slog.Info("Palm API Env Key" + environment.PalmApiKey)
 	allopts := append([]option.ClientOption{option.WithAPIKey(environment.PalmApiKey)}, opts...)
 	client, err := genai.NewClient(ctx, allopts...)
 	if err != nil {
